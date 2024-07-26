@@ -4,5 +4,26 @@
 
 body {
   font-family: sans-serif;
-  color: red;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.row {
+  display: flex;
+}
+
+.header {
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgb(235, 104, 104);
+}
+
+.header__nav--list {
+  gap: 1rem;
+  align-items: center;
 }
