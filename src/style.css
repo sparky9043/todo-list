@@ -21,9 +21,28 @@ ul {
   align-items: center;
   padding: 1rem;
   background: rgb(235, 104, 104);
+  color: white;
 }
 
 .header__nav--list {
   gap: 1rem;
   align-items: center;
+}
+
+#add-btn,
+#today-btn,
+#this-week-btn {
+  appearance: none;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  color: white;
+  font-weight: 700;
+}
+
+#add-btn:hover,
+#today-btn:hover,
+#this-week-btn:hover {
+  filter: brightness(.9);
+  cursor: pointer;
 }
