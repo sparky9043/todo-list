@@ -68,3 +68,20 @@ ul {
   filter: brightness(.9);
   cursor: pointer;
 }
+
+.display {
+  padding: 2rem 0;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.card {
+  border: 2px solid blue;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 15vw;
+  flex-grow: 0;
+  flex-shrink: 1;
+}
