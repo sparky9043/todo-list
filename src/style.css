@@ -46,3 +46,25 @@ ul {
   filter: brightness(.9);
   cursor: pointer;
 }
+
+.dialog {
+  border: none;
+  position: relative;
+}
+
+#close-btn {
+  position: absolute;
+  top: .2rem;
+  right: .2rem;
+  border: none;
+  background: rgb(255, 97, 97);
+  color: white;
+  font-weight: 700;
+  font-size: .8rem;
+  border-radius: 3px;
+}
+
+#close-btn:hover {
+  filter: brightness(.9);
+  cursor: pointer;
+}
