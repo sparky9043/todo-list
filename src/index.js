@@ -6,14 +6,31 @@ const EnableUI = (function() {
   const dialog = document.querySelector('.dialog');
   const buttons = document.querySelectorAll('.header__nav--list button');
   const modalButtons = document.querySelectorAll('.dialog button');
-  modalButtons.forEach(button => button.addEventListener('click', function(event) {
-    event.preventDefault();
-    if (button.id.includes('close')) {
-      dialog.close();
-    } else if (button.id.includes('submit')) {
-      return;
-    }
-  }));
+
+  const enableModalButtons = (buttons) => {
+    buttons.forEach(button => button.addEventListener('click', function(event) {
+      event.preventDefault();
+      if (button.id.includes('close')) {
+        dialog.close();
+      } else if (button.id.includes('submit')) {
+        const titleInput = document.querySelector('#title');
+        const descInput = document.querySelector('#description');
+        const dueDateInput = document.querySelector('#due-date');
+        const priorityInput = document.querySelector('#priority');
+  
+        if (!titleInput.value || !descInput.value || !dueDateInput.value) {
+          alert("Please fill out all the forms!");
+          return;
+        } else {
+          project.addProjectToList(titleInput.value, descInput.value, dueDateInput.value, priorityInput.value);
+          console.log(project.getProjectsList());
+        }
+      }
+    }));
+  }
+
+  enableModalButtons(modalButtons);
+
   
   buttons.forEach(button => button.addEventListener('click', handleClick));
 
