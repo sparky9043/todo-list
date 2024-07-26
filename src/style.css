@@ -81,6 +81,7 @@ ul {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  align-items: flex-start;
   width: 15vw;
   flex-grow: 0;
   flex-shrink: 1;
