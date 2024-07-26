@@ -25,8 +25,8 @@ const EnableUI = (function() {
           return;
         } else {
           project.addProjectToList(titleInput.value, descInput.value, dueDateInput.value, priorityInput.value);
-          const ui = UpdateUI(project.getProjectsList(), '.display');
-          ui.updateDisplay();
+          const ui = UpdateUI('.display');
+          ui.updateDisplay(projectsList);
           
         }
       }
@@ -79,10 +79,8 @@ const ProjectGenerator = () => {
   }
 }
 
-const UpdateUI = (projectsList, target) => {
+const UpdateUI = (target) => {
   const display = document.querySelector(target);
-
-  const getSortedProjectsList = () => projectsList.sort((a, b) => compareAsc(a.dueDate, b.dueDate));
 
   const clearDisplay = (target) => {
     while (target.firstChild) {
@@ -90,11 +88,11 @@ const UpdateUI = (projectsList, target) => {
     }
   }
 
-  const updateDisplay = () => {
+  const updateDisplay = (projectsList) => {
 
     clearDisplay(display);
 
-    const sortedProjectsList = getSortedProjectsList();
+    const sortedProjectsList = projectsList.sort((a, b) => compareAsc(a.dueDate, b.dueDate));
 
     for (let i = 0; i < sortedProjectsList.length; i ++) {
       const addedProject = sortedProjectsList[i];
