@@ -2,6 +2,8 @@ import './style.css';
 import { compareAsc } from 'date-fns';
 import Project from './ProjectClass';
 
+const projectsList = [];
+
 const EnableUI = (function() {
   const dialog = document.querySelector('.dialog');
   const buttons = document.querySelectorAll('.header__nav--list button');
@@ -54,7 +56,6 @@ const EnableUI = (function() {
 })();
 
 const ProjectGenerator = () => {
-  const projectsList = [];
 
   const getProjectsList = () => projectsList;
     
@@ -118,12 +119,23 @@ const UpdateUI = (projectsList, target) => {
       removeBtn.addEventListener('click', removeCard);
 
       function removeCard() {
-        function removeFromList() {
+        function removeFromDisplayAndList() {
+          this.remove();
           sortedProjectsList.splice(this.dataset.id, 1);
+
           console.log(sortedProjectsList);
         }
-    
-        removeFromList.call(article);
+
+        function reassignID() {
+          const articles = this.querySelectorAll('article');
+
+          for (let i = 0; i < articles.length; i++) {
+            articles[i].dataset.id = i;
+          }
+        }
+
+        removeFromDisplayAndList.call(article);
+        reassignID.call(display);
       }
   
       const elements = [
