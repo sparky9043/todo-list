@@ -2,6 +2,21 @@ import './style.css';
 import Project from './ProjectClass';
 import UpdateUI from './UpdateUI';
 
+/* 
+  For 7/27/2024
+  1. Create sidebar in HTML and appropriate buttons. The buttons should be:
+    a. Today
+    b. This Week
+    c. All
+  2. Create script files for all three
+  3. Make sure the three buttons take projectsList = [] as an argument so that it can iterate the sorted versions of it.
+  4. Maybe consider importing UpdateUI function, which takes the target parent as display and based on that,
+    const ui = UpdateUI('.display');
+    ui.updateDisplay(projectsList);
+    ==> Now all you have to do is sort the projectsList according to dates
+  5. Use date-fns to create conditions when filtering projectsList
+*/
+
 const projectsList = [];
 
 const EnableUI = (function() {
