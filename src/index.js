@@ -83,11 +83,15 @@ const UpdateUI = (projectsList, target) => {
 
   const getSortedProjectsList = () => projectsList.sort((a, b) => compareAsc(a.dueDate, b.dueDate));
 
+  const clearDisplay = (target) => {
+    while (target.firstChild) {
+      target.removeChild(target.firstChild);
+    }
+  }
+
   const updateDisplay = () => {
 
-    while (display.firstChild) {
-      display.removeChild(display.firstChild);
-    }
+    clearDisplay(display);
 
     const sortedProjectsList = getSortedProjectsList();
 
@@ -102,6 +106,7 @@ const UpdateUI = (projectsList, target) => {
       const removeBtn = document.createElement('button');
   
       article.classList.add('card');
+      article.dataset.id = i;
       removeBtn.id = 'remove-btn';
   
       title.textContent = `Project Title: ${addedProject.title}`;
@@ -109,6 +114,17 @@ const UpdateUI = (projectsList, target) => {
       dueDate.textContent = `Due Date: ${addedProject.dueDate}`;
       priority.textContent = `Priority Level: ${addedProject.priority}`;
       removeBtn.textContent = 'Remove Project';
+
+      removeBtn.addEventListener('click', removeCard);
+
+      function removeCard() {
+        function removeFromList() {
+          sortedProjectsList.splice(this.dataset.id, 1);
+          console.log(sortedProjectsList);
+        }
+    
+        removeFromList.call(article);
+      }
   
       const elements = [
         title,
@@ -124,6 +140,7 @@ const UpdateUI = (projectsList, target) => {
   
       display.appendChild(article);
     }
+
     console.log(sortedProjectsList);
   }
 
