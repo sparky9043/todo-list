@@ -81,35 +81,50 @@ const ProjectGenerator = () => {
 const UpdateUI = (projectsList, target) => {
   const display = document.querySelector(target);
 
+  const getSortedProjectsList = () => projectsList.sort((a, b) => compareAsc(a.dueDate, b.dueDate));
+
   const updateDisplay = () => {
 
-    const addedProject = projectsList[projectsList.length - 1];
-
-    const article = document.createElement('article');
-    const title = document.createElement('h2');
-    const description = document.createElement('p');
-    const dueDate = document.createElement('p');
-    const priority = document.createElement('p');
-
-    article.classList.add('card');
-
-    title.textContent = addedProject.title;
-    description.textContent = addedProject.description;
-    dueDate.textContent = addedProject.dueDate;
-    priority.textContent = addedProject.priority;
-
-    const elements = [
-      title,
-      description,
-      dueDate,
-      priority,
-    ];
-
-    for (const element of elements) {
-      article.appendChild(element);
+    while (display.firstChild) {
+      display.removeChild(display.firstChild);
     }
 
-    display.appendChild(article);
+    const sortedProjectsList = getSortedProjectsList();
+
+    for (let i = 0; i < sortedProjectsList.length; i ++) {
+      const addedProject = sortedProjectsList[i];
+
+      const article = document.createElement('article');
+      const title = document.createElement('h2');
+      const description = document.createElement('p');
+      const dueDate = document.createElement('p');
+      const priority = document.createElement('p');
+      const removeBtn = document.createElement('button');
+  
+      article.classList.add('card');
+      removeBtn.id = 'remove-btn';
+  
+      title.textContent = `Project Title: ${addedProject.title}`;
+      description.textContent = `Description: ${addedProject.description}`;
+      dueDate.textContent = `Due Date: ${addedProject.dueDate}`;
+      priority.textContent = `Priority Level: ${addedProject.priority}`;
+      removeBtn.textContent = 'Remove Project';
+  
+      const elements = [
+        title,
+        description,
+        dueDate,
+        priority,
+        removeBtn,
+      ];
+  
+      for (const element of elements) {
+        article.appendChild(element);
+      }
+  
+      display.appendChild(article);
+    }
+    console.log(sortedProjectsList);
   }
 
   return {
