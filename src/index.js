@@ -2,6 +2,34 @@ import './style.css';
 import { compareAsc } from 'date-fns';
 import Project from './ProjectClass';
 
+const EnableUI = (function() {
+  const dialog = document.querySelector('.dialog');
+  const buttons = document.querySelectorAll('.header__nav--list button');
+  const modalButtons = document.querySelectorAll('.dialog button');
+  modalButtons.forEach(button => button.addEventListener('click', function(event) {
+    event.preventDefault();
+    if (button.id.includes('close')) {
+      dialog.close();
+    } else if (button.id.includes('submit')) {
+      return;
+    }
+  }));
+  
+  buttons.forEach(button => button.addEventListener('click', handleClick));
+
+  function handleClick(event) {
+    const targetID = event.target.id;
+
+    if (targetID.includes('add')) {
+      dialog.showModal();
+    } else if (targetID.includes('today')) {
+      console.log('today');
+    } else if (targetID.includes('week')) {
+      console.log('week');
+    }
+  }
+})();
+
 const ProjectGenerator = () => {
   const projectsList = [];
 
@@ -26,12 +54,3 @@ const ProjectGenerator = () => {
 }
 
 const project = ProjectGenerator();
-
-project.addProjectToList('Hi0', 'Hello0', '2020-12-17', 'low');
-project.addProjectToList('Hi1', 'Hello1', '2015-12-17', 'medium');
-project.addProjectToList('Hi2', 'Hello2', '2024-12-17', 'high');
-project.addProjectToList('Hi3', 'Hello3', '2018-12-17', 'low');
-project.addProjectToList('Hi4', 'Hello4', '2011-12-17', 'low');
-
-
-console.log(project.getProjectsList());
