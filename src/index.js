@@ -91,6 +91,8 @@ const UpdateUI = (projectsList, target) => {
     const dueDate = document.createElement('p');
     const priority = document.createElement('p');
 
+    article.classList.add('card');
+
     title.textContent = addedProject.title;
     description.textContent = addedProject.description;
     dueDate.textContent = addedProject.dueDate;
