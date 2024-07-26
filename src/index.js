@@ -127,15 +127,15 @@ const UpdateUI = (projectsList, target) => {
         }
 
         function reassignID() {
-          const articles = this.querySelectorAll('article');
+          const articles = display.querySelectorAll('article');
 
-          for (let i = 0; i < articles.length; i++) {
+          for (let i = this.dataset.id; i < articles.length; i++) {
             articles[i].dataset.id = i;
           }
         }
 
         removeFromDisplayAndList.call(article);
-        reassignID.call(display);
+        reassignID.call(article);
       }
   
       const elements = [
