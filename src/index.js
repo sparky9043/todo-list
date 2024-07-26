@@ -31,20 +31,24 @@ const EnableUI = (function() {
 
   enableModalButtons(modalButtons);
 
+  const enableNavBarButtons = (buttons) => {
+    buttons.forEach(button => button.addEventListener('click', handleClick));
+
+    function handleClick(event) {
+      const targetID = event.target.id;
   
-  buttons.forEach(button => button.addEventListener('click', handleClick));
-
-  function handleClick(event) {
-    const targetID = event.target.id;
-
-    if (targetID.includes('add')) {
-      dialog.showModal();
-    } else if (targetID.includes('today')) {
-      console.log('today');
-    } else if (targetID.includes('week')) {
-      console.log('week');
+      if (targetID.includes('add')) {
+        dialog.showModal();
+      } else if (targetID.includes('today')) {
+        console.log('today');
+      } else if (targetID.includes('week')) {
+        console.log('week');
+      }
     }
   }
+
+  enableNavBarButtons(buttons);
+  
 })();
 
 const ProjectGenerator = () => {
