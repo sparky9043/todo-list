@@ -7,9 +7,30 @@
 </head>
 <body>
   <dialog class="dialog">
-    <h2></h2>
-    <p>Greetings, one and all!</p>
+    <h2>Enter project for your todo list</h2>
     <form>
+      <ul>
+        <li>
+          <label for="title">Enter project title: </label>
+          <input type="text" name="title" id="title">
+        </li>
+        <li>
+          <label for="description">Enter brief description: </label>
+          <input type="text" name="description" id="description">
+        </li>
+        <li>
+          <label for="due-date">Select due date: </label>
+          <input type="date" name="due-date" id="due-date">
+        </li>
+        <li>
+          <label for="priority">Select priority level: </label>
+          <select id="priority" name="priority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </li>
+      </ul>
       <button id="submit">Submit</button>
       <button id="close-btn">x</button>
     </form>
