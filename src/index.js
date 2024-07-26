@@ -1,11 +1,21 @@
 import './style.css';
 import Project from './ProjectClass';
 
-const generateProject = (title, description, dueDate, priority) => {
+const ProjectGenerator = () => {
+  const projectsList = [];
 
-  const project = new Project(title, description, dueDate, priority);
+  const getProjectsArray = () => projectsList;
 
-  console.log(project);
+  const makeProject = (title, description, dueDate, priority) => {
+    const project = new Project(title, description, dueDate, priority);
+    projectsList.push(project);
+    return project;
+  }
+
+  return {
+    getProjectsArray,
+    makeProject,
+  }
 }
 
-generateProject('hi', 'hello', '2017-12-12', 'high');
+const myProject = ProjectGenerator();
