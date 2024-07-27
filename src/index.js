@@ -32,7 +32,7 @@ const EnableUI = (function() {
     for (const project of storageProjectsList) {
       projectsList.push(project);
     }
-    console.log(projectsList);
+    console.log("Saved Project List restored!",projectsList);
     ui.updateDisplay(projectsList);
   }
   
