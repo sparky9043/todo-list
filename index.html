@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+</head>
+<body>
+  <dialog class="dialog">
+    <h2>Enter project for your todo list</h2>
+    <form>
+      <ul>
+        <li>
+          <label for="title">Enter project title: </label>
+          <input type="text" name="title" id="title">
+        </li>
+        <li>
+          <label for="description">Enter brief description: </label>
+          <input type="text" name="description" id="description">
+        </li>
+        <li>
+          <label for="due-date">Select due date: </label>
+          <input type="date" name="due-date" id="due-date">
+        </li>
+        <li>
+          <label for="priority">Select priority level: </label>
+          <select id="priority" name="priority">
+            <option value="low">Low</option>
+            <option value="high">High</option>
+          </select>
+        </li>
+      </ul>
+      <button id="submit">Submit</button>
+      <button id="close-btn">x</button>
+    </form>
+  </dialog>
+  <div class="container row">
+    <header class="header column">
+      <div class="header__title column">
+        <h1>Todo List</h1>
+      </div>
+      <div class="header__nav">
+        <nav>
+          <ul class="header__nav--list column">
+            <li>
+              <button id="add-btn">Add Project</button>
+            </li>
+            <li>
+              <button id="today-btn">Due Today</button>
+            </li>
+            <li>
+              <button id="this-week-btn">Due This Week</button>
+            </li>
+            <li>
+              <button id="all-projects-btn">Show All Projects</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="display row">
+    </div>
+  </div>
+<script defer src="main.js"></script></body>
+</html>
