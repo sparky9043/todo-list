@@ -19,25 +19,24 @@ import UpdateUI from './UpdateUI';
 
 const projectsList = [];
 
-const restoreLocalStorage = () => {
-  if (!localStorage.getItem("projects")) return;
-  const ui = UpdateUI('.display');
-  const storageProjectsList = JSON.parse(localStorage.getItem("projects"));
-  console.log(projectsList);
-  for (const project of storageProjectsList) {
-    projectsList.push(project);
-  }
-  console.log(projectsList);
-  ui.updateDisplay(projectsList);
-}
-
-restoreLocalStorage();
-
 const EnableUI = (function() {
   const dialog = document.querySelector('.dialog');
   const buttons = document.querySelectorAll('.header__nav--list button');
   const modalButtons = document.querySelectorAll('.dialog button');
   const ui = UpdateUI('.display');
+
+  const restoreLocalStorage = () => {
+    if (!localStorage.getItem("projects")) return;
+    const ui = UpdateUI('.display');
+    const storageProjectsList = JSON.parse(localStorage.getItem("projects"));
+    for (const project of storageProjectsList) {
+      projectsList.push(project);
+    }
+    console.log(projectsList);
+    ui.updateDisplay(projectsList);
+  }
+  
+  restoreLocalStorage();
 
   const enableModalButtons = (buttons) => {
     buttons.forEach(button => button.addEventListener('click', function(event) {
@@ -56,14 +55,17 @@ const EnableUI = (function() {
         } else {
           project.addProjectToList(titleInput.value, descInput.value, dueDateInput.value, priorityInput.value);
           ui.updateDisplay(projectsList);
-          localStorage.setItem("projects", JSON.stringify(projectsList));
-          console.log(localStorage.getItem("projects"));
+          saveInLocalStorage(JSON.stringify(projectsList));
         }
       }
     }));
   }
 
   enableModalButtons(modalButtons);
+
+  const saveInLocalStorage = (targetList) => {
+    localStorage.setItem("projects", targetList);
+  }
 
   const enableNavBarButtons = (buttons) => {
     buttons.forEach(button => button.addEventListener('click', handleClick));
