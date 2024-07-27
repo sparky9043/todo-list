@@ -65,7 +65,6 @@ const UpdateUI = (target) => {
         description,
         dueDate,
         priority,
-        removeBtn,
       ];
   
       for (const element of textElements) {
@@ -74,6 +73,7 @@ const UpdateUI = (target) => {
       
       article.appendChild(title);
       article.appendChild(cardText);
+      article.appendChild(removeBtn);
       display.appendChild(article);
     }
   }
