@@ -60,6 +60,8 @@ const EnableUI = (function() {
         dialog.showModal();
       } else if (targetID.includes('today')) {
         console.log('today');
+        const ui = UpdateUI('.display');
+        ui.showProjectsDueToday(projectsList);
       } else if (targetID.includes('week')) {
         console.log('week');
       }

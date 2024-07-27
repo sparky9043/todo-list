@@ -1,5 +1,5 @@
 import './style.css';
-import { compareAsc } from 'date-fns';
+import { compareAsc, formatDate } from 'date-fns';
 
 const UpdateUI = (target) => {
   const display = document.querySelector(target);
@@ -76,8 +76,17 @@ const UpdateUI = (target) => {
     console.log(sortedProjectsList);
   }
 
+  const showProjectsDueToday = (projectsList) => {
+    const todayDate = formatDate(new Date(), 'MMM-dd-yyyy');
+
+    const projectsDueToday = projectsList.filter(project => compareAsc(project.dueDate, todayDate) === 0);
+
+    updateDisplay(projectsDueToday);
+  }
+
   return {
     updateDisplay,
+    showProjectsDueToday,
   }
 }
 
