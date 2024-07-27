@@ -31,7 +31,8 @@ ul {
 
 #add-btn,
 #today-btn,
-#this-week-btn {
+#this-week-btn,
+#all-projects-btn {
   appearance: none;
   border: none;
   background: none;
@@ -42,7 +43,8 @@ ul {
 
 #add-btn:hover,
 #today-btn:hover,
-#this-week-btn:hover {
+#this-week-btn:hover,
+#all-projects-btn:hover {
   filter: brightness(.9);
   cursor: pointer;
 }
