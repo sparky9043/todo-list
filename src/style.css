@@ -110,7 +110,8 @@ ul {
   display: block;
   width: 100%;
   padding: 1rem;
-  background: rgb(249, 137, 68);
+  background: rgb(255, 97, 97);
+  filter: brightness(.9);
   color: white;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
