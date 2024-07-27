@@ -104,6 +104,7 @@ ul {
   flex-shrink: 1;
   box-shadow: 0 0 8px rgb(177, 177, 177);
   border-radius: 10px;
+  position: relative;
 }
 
 .card__title {
@@ -125,5 +126,18 @@ ul {
 }
 
 #remove-btn {
-  margin-bottom: .5rem;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  background:rgb(255, 97, 97);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+#remove-btn:hover {
+  cursor: pointer;
+  filter: brightness(.9);
 }
