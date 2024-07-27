@@ -1,5 +1,5 @@
 import './style.css';
-import { compareAsc, formatDate } from 'date-fns';
+import { compareAsc, formatDate, isBefore, isAfter, startOfWeek, addDays } from 'date-fns';
 
 const UpdateUI = (target) => {
   const display = document.querySelector(target);
@@ -84,9 +84,19 @@ const UpdateUI = (target) => {
     updateDisplay(projectsDueToday);
   }
 
+  const showProjectsDueThisWeek = (projectsList) => {
+    const startOfThisWeek = formatDate(addDays(startOfWeek(new Date()), -1), "MMM-dd-yyyy");
+    const startOfNextWeek = formatDate(startOfWeek( addDays(new Date(), 7) ), "MMM-dd-yyyy");
+    
+    const projectsDueThisWeek = projectsList.filter(project => isAfter(project.dueDate, startOfThisWeek) && isBefore(project.dueDate, startOfNextWeek));
+    
+    updateDisplay(projectsDueThisWeek);
+  }
+
   return {
     updateDisplay,
     showProjectsDueToday,
+    showProjectsDueThisWeek,
   }
 }
 

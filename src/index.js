@@ -64,6 +64,8 @@ const EnableUI = (function() {
         ui.showProjectsDueToday(projectsList);
       } else if (targetID.includes('week')) {
         console.log('week');
+        const ui = UpdateUI('.display');
+        ui.showProjectsDueThisWeek(projectsList);
       }
     }
   }
