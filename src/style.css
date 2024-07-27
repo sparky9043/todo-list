@@ -100,7 +100,7 @@ ul {
   flex-wrap: wrap;
   align-items: flex-start;
   width: 20%;
-  min-height: 15vh;
+  min-height: 30vh;
   flex-grow: 0;
   flex-shrink: 1;
   box-shadow: 0 0 8px rgb(177, 177, 177);
@@ -121,4 +121,7 @@ ul {
 
 .card__text {
   padding: 1rem;
+  border: 2px solid blue;
+  width: 100%;
+  height: 100%;
 }
