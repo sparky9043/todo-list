@@ -6,6 +6,7 @@ body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
+  overflow: auto;
 }
 
 ul {
@@ -16,16 +17,22 @@ ul {
   display: flex;
 }
 
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
 .header {
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 2rem 1rem;
   background: rgb(235, 104, 104);
   color: white;
+  min-height: 100vh;
 }
 
 .header__nav--list {
-  gap: 1rem;
+  gap: 2rem;
   align-items: center;
 }
 
@@ -73,8 +80,16 @@ ul {
 
 .display {
   padding: 2rem 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
   flex-wrap: wrap;
   gap: .5rem;
+  width: 95%;
+  max-width: 80vw;
+  margin: 0 auto;
+  overflow: auto;
+  max-height: 100vh;
 }
 
 .card {

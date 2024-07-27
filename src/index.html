@@ -34,30 +34,32 @@
       <button id="close-btn">x</button>
     </form>
   </dialog>
-  <header class="header row">
-    <div class="header__title">
-      <h1>Todo List</h1>
+  <div class="container row">
+    <header class="header column">
+      <div class="header__title column">
+        <h1>Todo List</h1>
+      </div>
+      <div class="header__nav">
+        <nav>
+          <ul class="header__nav--list column">
+            <li>
+              <button id="add-btn">Add Project</button>
+            </li>
+            <li>
+              <button id="today-btn">Due Today</button>
+            </li>
+            <li>
+              <button id="this-week-btn">Due This Week</button>
+            </li>
+            <li>
+              <button id="all-projects-btn">Show All Projects</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="display row">
     </div>
-    <div class="header__nav">
-      <nav>
-        <ul class="header__nav--list row">
-          <li>
-            <button id="add-btn">Add Project</button>
-          </li>
-          <li> 
-            <button id="today-btn">Due Today</button>
-          </li>
-          <li>
-            <button id="this-week-btn">Due This Week</button>
-          </li>
-          <li>
-            <button id="all-projects-btn">Show All Projects</button>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <div class="display row">
   </div>
 </body>
 </html>
