@@ -79,7 +79,7 @@ ul {
 }
 
 .display {
-  padding: 2rem 0;
+  padding: 2rem 1vw;
   justify-content: flex-start;
   align-items: flex-start;
   align-content: flex-start;
@@ -90,6 +90,7 @@ ul {
   margin: 0 auto;
   overflow: auto;
   max-height: 100vh;
+  border: 2px solid blue;
 }
 
 .card {
@@ -98,7 +99,8 @@ ul {
   flex-direction: column;
   flex-wrap: wrap;
   align-items: flex-start;
-  width: 15vw;
+  width: 20%;
+  min-height: 15vh;
   flex-grow: 0;
   flex-shrink: 1;
   box-shadow: 0 0 8px rgb(177, 177, 177);
