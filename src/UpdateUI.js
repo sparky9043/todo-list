@@ -45,6 +45,7 @@ const UpdateUI = (target) => {
         function removeFromDisplayAndList() {
           this.remove();
           sortedProjectsList.splice(this.dataset.id, 1);
+          localStorage.setItem("projects", JSON.stringify(sortedProjectsList));
 
           console.log(sortedProjectsList);
         }
