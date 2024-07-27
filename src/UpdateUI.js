@@ -72,8 +72,6 @@ const UpdateUI = (target) => {
   
       display.appendChild(article);
     }
-
-    console.log(sortedProjectsList);
   }
 
   const showProjectsDueToday = (projectsList) => {
@@ -82,6 +80,7 @@ const UpdateUI = (target) => {
     const projectsDueToday = projectsList.filter(project => compareAsc(project.dueDate, todayDate) === 0);
 
     updateDisplay(projectsDueToday);
+    console.log(projectsList);
   }
 
   const showProjectsDueThisWeek = (projectsList) => {
@@ -91,12 +90,18 @@ const UpdateUI = (target) => {
     const projectsDueThisWeek = projectsList.filter(project => isAfter(project.dueDate, startOfThisWeek) && isBefore(project.dueDate, startOfNextWeek));
     
     updateDisplay(projectsDueThisWeek);
+    console.log(projectsList);
+  }
+
+  const showAllProjects = (projectsList) => {
+    updateDisplay(projectsList);
   }
 
   return {
     updateDisplay,
     showProjectsDueToday,
     showProjectsDueThisWeek,
+    showAllProjects,
   }
 }
 
