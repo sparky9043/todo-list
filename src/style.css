@@ -84,7 +84,7 @@ ul {
   align-items: flex-start;
   align-content: flex-start;
   flex-wrap: wrap;
-  gap: .5rem;
+  gap: 1rem;
   width: 95%;
   max-width: 80vw;
   margin: 0 auto;
@@ -93,8 +93,7 @@ ul {
 }
 
 .card {
-  border: 2px solid blue;
-
+  padding: 0;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -102,4 +101,21 @@ ul {
   width: 15vw;
   flex-grow: 0;
   flex-shrink: 1;
+  box-shadow: 0 0 8px rgb(177, 177, 177);
+  border-radius: 10px;
+}
+
+.card__title {
+  margin: 0;
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background: rgb(249, 137, 68);
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card__text {
+  padding: 1rem;
 }

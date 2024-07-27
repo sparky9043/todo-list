@@ -21,6 +21,7 @@ const UpdateUI = (target) => {
 
       const article = document.createElement('article');
       const title = document.createElement('h2');
+      const cardText = document.createElement('div');
       const description = document.createElement('p');
       const dueDate = document.createElement('p');
       const priority = document.createElement('p');
@@ -28,6 +29,8 @@ const UpdateUI = (target) => {
   
       article.classList.add('card');
       article.dataset.id = i;
+      title.classList.add('card__title');
+      cardText.classList.add('card__text');
       removeBtn.id = 'remove-btn';
   
       title.textContent = `Project Title: ${addedProject.title}`;
@@ -58,18 +61,19 @@ const UpdateUI = (target) => {
         reassignID.call(article);
       }
   
-      const elements = [
-        title,
+      const textElements = [
         description,
         dueDate,
         priority,
         removeBtn,
       ];
   
-      for (const element of elements) {
-        article.appendChild(element);
+      for (const element of textElements) {
+        cardText.appendChild(element);
       }
-  
+      
+      article.appendChild(title);
+      article.appendChild(cardText);
       display.appendChild(article);
     }
   }
