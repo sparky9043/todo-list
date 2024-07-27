@@ -37,7 +37,7 @@ const UpdateUI = (target) => {
       description.textContent = `Description: ${addedProject.description}`;
       dueDate.textContent = `Due Date: ${addedProject.dueDate}`;
       priority.textContent = `Priority Level: ${addedProject.priority}`;
-      removeBtn.textContent = 'Remove Project';
+      removeBtn.textContent = 'X';
 
       removeBtn.addEventListener('click', removeCard);
 
