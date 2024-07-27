@@ -33,7 +33,7 @@ const UpdateUI = (target) => {
       cardText.classList.add('card__text');
       removeBtn.id = 'remove-btn';
   
-      title.textContent = `Project Title: ${addedProject.title}`;
+      title.textContent = addedProject.title;
       description.textContent = `Description: ${addedProject.description}`;
       dueDate.textContent = `Due Date: ${addedProject.dueDate}`;
       priority.textContent = `Priority Level: ${addedProject.priority}`;
