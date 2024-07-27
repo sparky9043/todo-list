@@ -55,17 +55,22 @@ const EnableUI = (function() {
 
     function handleClick(event) {
       const targetID = event.target.id;
+      const ui = UpdateUI('.display');
   
       if (targetID.includes('add')) {
         dialog.showModal();
       } else if (targetID.includes('today')) {
-        console.log('today');
-        const ui = UpdateUI('.display');
+        
         ui.showProjectsDueToday(projectsList);
+
       } else if (targetID.includes('week')) {
-        console.log('week');
-        const ui = UpdateUI('.display');
+
         ui.showProjectsDueThisWeek(projectsList);
+
+      } else if (targetID.includes('all')) {
+
+        ui.showAllProjects(projectsList);
+        
       }
     }
   }
