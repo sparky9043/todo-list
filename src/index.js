@@ -19,10 +19,25 @@ import UpdateUI from './UpdateUI';
 
 const projectsList = [];
 
+const restoreLocalStorage = () => {
+  if (!localStorage.getItem("projects")) return;
+  const ui = UpdateUI('.display');
+  const storageProjectsList = JSON.parse(localStorage.getItem("projects"));
+  console.log(projectsList);
+  for (const project of storageProjectsList) {
+    projectsList.push(project);
+  }
+  console.log(projectsList);
+  ui.updateDisplay(projectsList);
+}
+
+restoreLocalStorage();
+
 const EnableUI = (function() {
   const dialog = document.querySelector('.dialog');
   const buttons = document.querySelectorAll('.header__nav--list button');
   const modalButtons = document.querySelectorAll('.dialog button');
+  const ui = UpdateUI('.display');
 
   const enableModalButtons = (buttons) => {
     buttons.forEach(button => button.addEventListener('click', function(event) {
@@ -40,9 +55,9 @@ const EnableUI = (function() {
           return;
         } else {
           project.addProjectToList(titleInput.value, descInput.value, dueDateInput.value, priorityInput.value);
-          const ui = UpdateUI('.display');
           ui.updateDisplay(projectsList);
-          
+          localStorage.setItem("projects", JSON.stringify(projectsList));
+          console.log(localStorage.getItem("projects"));
         }
       }
     }));
@@ -55,7 +70,6 @@ const EnableUI = (function() {
 
     function handleClick(event) {
       const targetID = event.target.id;
-      const ui = UpdateUI('.display');
   
       if (targetID.includes('add')) {
         dialog.showModal();
@@ -70,7 +84,7 @@ const EnableUI = (function() {
       } else if (targetID.includes('all')) {
 
         ui.showAllProjects(projectsList);
-        
+
       }
     }
   }
